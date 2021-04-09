@@ -125,3 +125,4 @@ Remember that this project is licensed under the MIT license, and by submitting 
 See [Backend Documentation](🚫*link to your backend API SWAGGER DOCS here*) for details on the backend of our project.
 
 ## https://main.d30l8jle55dmrh.amplifyapp.com
+### Engineering Architecture Doc: https://whimsical.com/b-g-research-and-dev-WqPezeYR6Vod5BdobwTXKu
