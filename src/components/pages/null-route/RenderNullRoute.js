@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function RenderLandingPage(props) {
+function RenderNullRoute(props) {
   return (
     <div>
       <h1>Welcome to Labs Basic SPA</h1>
@@ -9,6 +9,7 @@ function RenderLandingPage(props) {
         <p>
           This is an example of how we'd like for you to approach page/routable
           components.
+          You have no role!
         </p>
         <p>
           <Link to="/example-list">Example List of Items</Link>
@@ -17,4 +18,4 @@ function RenderLandingPage(props) {
     </div>
   );
 }
-export default RenderLandingPage;
+export default RenderNullRoute;

@@ -13,7 +13,7 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
-import { LandingPage } from './components/pages/Landing';
+import { NullRoute } from './components/pages/null-route';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
@@ -42,7 +42,7 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
-        <Route path="/landing" component={LandingPage} />
+        <Route path="/landing" component={NullRoute} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
