@@ -41,6 +41,8 @@ export const LOGIN_RESOLVE = 'LOGIN_RESOLVE';
     username: null,
     useremails: null,
     roles: null,
+    status: 'idle',
+    error: '',
   };
 
 /******************************************************
@@ -50,18 +52,24 @@ export const LOGIN_RESOLVE = 'LOGIN_RESOLVE';
 const userReducer = (state = userInitialState, action) => {
     switch(action.type) {
         case LOGIN_START:
-            return { ...state };
+            return { ...state,
+                status: 'edit/pending',
+                 };
         case LOGIN_SUCCESS:
             return { ...state,
                 userid: action.payload.userid,
                 username: action.payload.username,
                 useremails: action.payload.useremails,
-                roles: action.payload.roles[0].role.name
+                roles: action.payload.roles[0].role.name,
+                status: 'edit/success'
              };
         case LOGIN_FAIL:
-            return { ...state };
+            return { ...state,
+                status: 'edit/error'
+                 };
         case LOGIN_RESOLVE:
-            return { ...state };
+            return { ...state,
+                status: 'idle' };
         default:
             return state;
     }
