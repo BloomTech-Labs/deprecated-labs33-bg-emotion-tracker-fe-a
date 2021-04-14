@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const dashboardWrapper = () => {
+function clubDashWrapper() {
   return (
     <div>
       <h1>dashboardWrapper</h1>
       <Link to="/">HOME</Link>
     </div>
   );
-};
-export default dashboardWrapper;
+}
+export default clubDashWrapper;

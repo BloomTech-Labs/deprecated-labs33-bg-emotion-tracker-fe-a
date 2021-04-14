@@ -16,6 +16,8 @@ import { HomePage } from './components/pages/Home';
 import { NullRoute } from './components/pages/null-route';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
+import { dashboardWrapper } from './components/pages/default-dash-wrapper';
+import { clubDashWrapper } from './components/pages/club-dash';
 
 ReactDOM.render(
   <Router>
@@ -49,6 +51,8 @@ function App() {
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
+        <SecureRoute path="/dashboard-wrapper" component={dashboardWrapper} />
+        <SecureRoute path="/clubdash-wrapper" component={clubDashWrapper} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
