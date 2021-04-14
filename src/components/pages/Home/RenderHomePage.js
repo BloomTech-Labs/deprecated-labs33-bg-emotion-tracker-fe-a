@@ -53,7 +53,7 @@ function RenderHomePage(props) {
           <Content style={{ margin: '24px 16px 0' }}>
             <div
               className="site-layout-background"
-              style={{ padding: 24, minHeight: 360 }}
+              style={{ padding: 24, minHeight: '100vh' }}
             >
               <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1>
             </div>
