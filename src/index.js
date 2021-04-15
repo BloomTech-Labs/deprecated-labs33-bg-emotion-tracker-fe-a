@@ -15,6 +15,7 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
+import { landingPage } from './components/pages/Landing';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { layoutTemplate } from './components/pages/view-layout';
@@ -47,7 +48,10 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
-        <Route path="/landing" component={landingPageContainer} />
+        <Route path="/landing" component={landingPage} />
+        {/* test route */}
+        <Route path="/member-modal" component={RenderMemberDashModal} />
+
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
