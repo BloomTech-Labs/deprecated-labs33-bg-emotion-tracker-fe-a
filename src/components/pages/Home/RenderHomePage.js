@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../../common';
 // import { Link } from 'react-router-dom';
-import ClubTable from '../club-management-table/ClubTable';
+
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
   return (
@@ -13,7 +13,7 @@ function RenderHomePage(props) {
         <p>
           <Link to="clubdash-wrapper">clubDashWrapper</Link>
         </p> */}
-      <ClubTable />
+     
       <div>
         <p>
           <Button
