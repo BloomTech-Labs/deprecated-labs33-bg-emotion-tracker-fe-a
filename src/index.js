@@ -13,13 +13,11 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
-import { NullRoute } from './components/pages/null-route';
+import { landingPage } from './components/pages/Landing';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-import { dashboardWrapper } from './components/pages/default-dash-wrapper';
-import { clubDashWrapper } from './components/pages/club-dash';
-// Imported RenderMemberDashModal for testing
-import RenderMemberDashModal from './components/pages/member-dash-modal/RenderMemberDashModal';
+import { layoutTemplate } from './components/pages/view-layout';
+import { clubDashboard } from './components/pages/view-clubdash';
 
 ReactDOM.render(
   <Router>
@@ -46,7 +44,7 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
-        <Route path="/landing" component={NullRoute} />
+        <Route path="/landing" component={landingPage} />
         {/* test route */}
         <Route path="/member-modal" component={RenderMemberDashModal} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
@@ -55,8 +53,8 @@ function App() {
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
-        <SecureRoute path="/dashboard-wrapper" component={dashboardWrapper} />
-        <SecureRoute path="/clubdash-wrapper" component={clubDashWrapper} />
+        <SecureRoute path="/dashboard-wrapper" component={layoutTemplate} />
+        <SecureRoute path="/clubdash-wrapper" component={clubDashboard} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>

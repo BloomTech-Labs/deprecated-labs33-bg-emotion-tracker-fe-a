@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function RenderNullRoute(props) {
+function renderLandingPage(props) {
   return (
     <div>
       <h1>Welcome to Labs Basic SPA</h1>
@@ -19,4 +19,4 @@ function RenderNullRoute(props) {
     </div>
   );
 }
-export default RenderNullRoute;
+export default renderLandingPage;
