@@ -21,6 +21,8 @@ import { LoadingComponent } from './components/common';
 import { layoutTemplate } from './components/pages/view-layout';
 import { clubDashboard } from './components/pages/view-clubdash';
 
+import { memberModal } from './components/pages/index';
+
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -50,7 +52,7 @@ function App() {
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={landingPage} />
         {/* test route */}
-        <Route path="/member-modal" component={RenderMemberDashModal} />
+        <Route path="/member-modal" component={memberModal} />
 
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
