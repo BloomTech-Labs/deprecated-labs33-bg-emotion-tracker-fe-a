@@ -15,13 +15,10 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
-import { NullRoute } from './components/pages/Landing';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { layoutTemplate } from './components/pages/view-layout';
 import { clubDashboard } from './components/pages/view-clubdash';
-import landingPageContainer from './components/pages/Landing/landingPageContainer';
-
 
 ReactDOM.render(
   <Router>
