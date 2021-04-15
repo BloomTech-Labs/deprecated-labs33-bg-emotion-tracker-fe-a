@@ -9,7 +9,7 @@ import MemberIdImportForm from '../../common/MemberIdImportForm';
 import { Modal, Button } from 'antd';
 
 // styles
-import styled from 'styled-components';
+import './modal.less';
 
 // added styles
 const MainWindowDiv = styled.div`
@@ -90,9 +90,13 @@ function RenderMemberDashModal() {
         height="50"
       >
         <MainWindowDiv>
+          {/* <div className="mainWindow"></div> */}
           <MemberInputWindowDiv>
+            {/* <div className="memberInputContainer"></div>*/}
             <MemberInputDiv>
+              {/* <div className="memberInput"></div> */}
               <MemberIdImportForm />
+                {/* <div className="member"></div> */}
             </MemberInputDiv>
 
             <div>
