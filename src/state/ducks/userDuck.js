@@ -13,7 +13,7 @@ export const LOGIN_RESOLVE = 'LOGIN_RESOLVE';
 * USER ACTIONS
 ******************************************************/
 
- export const userActions = {
+export const userActions = {
     //GET USER INFO
     loginThunk: () => dispatch => {
         dispatch({type: LOGIN_START });

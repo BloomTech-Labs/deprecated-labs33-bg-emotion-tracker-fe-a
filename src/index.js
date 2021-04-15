@@ -6,6 +6,8 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../src/state/index';
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
@@ -13,16 +15,20 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
-import { NullRoute } from './components/pages/null-route';
+import { NullRoute } from './components/pages/Landing';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-import { dashboardWrapper } from './components/pages/default-dash-wrapper';
-import { clubDashWrapper } from './components/pages/club-dash';
+import { layoutTemplate } from './components/pages/view-layout';
+import { clubDashboard } from './components/pages/view-clubdash';
+import landingPageContainer from './components/pages/Landing/landingPageContainer';
+
 
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
@@ -44,15 +50,15 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
-        <Route path="/landing" component={NullRoute} />
+        <Route path="/landing" component={landingPageContainer} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
-        <SecureRoute path="/dashboard-wrapper" component={dashboardWrapper} />
-        <SecureRoute path="/clubdash-wrapper" component={clubDashWrapper} />
+        <SecureRoute path="/dashboard-wrapper" component={layoutTemplate} />
+        <SecureRoute path="/clubdash-wrapper" component={clubDashboard} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
