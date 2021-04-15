@@ -6,6 +6,8 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../src/state/index';
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
@@ -22,7 +24,9 @@ import { clubDashboard } from './components/pages/view-clubdash';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
@@ -47,6 +51,7 @@ function App() {
         <Route path="/landing" component={landingPage} />
         {/* test route */}
         <Route path="/member-modal" component={RenderMemberDashModal} />
+
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"

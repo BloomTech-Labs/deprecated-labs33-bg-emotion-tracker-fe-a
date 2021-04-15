@@ -1,3 +1,4 @@
+
 module.exports = {
   '@primary-color': '#0081C6',
   '@link-color': '#0081C6',
@@ -7,7 +8,7 @@ module.exports = {
   '@font-size-base': '14px',
   '@heading-color': '#004B87',
   '@text-color': '#333333',
-  '@body-background': '#DCD7D6',
+  '@body-background': '#000000',
   '@component-background': '#F5F0EF',
   '@font-family': "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
   '@text-color-secondary': 'rgba(0, 0, 0, 0.45)',
