@@ -3,6 +3,7 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import { Layout, Menu, Avatar } from 'antd';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
+import ClubTable from '../view-memberdash/ClubTable';
 
 const { Content, Sider } = Layout;
 
@@ -56,6 +57,7 @@ function RenderHomePage(props) {
               style={{ padding: 24, minHeight: '100vh' }}
             >
               <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1>
+              {/* <ClubTable /> */}
             </div>
           </Content>
         </Layout>
