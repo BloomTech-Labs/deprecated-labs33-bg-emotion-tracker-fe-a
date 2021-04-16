@@ -11,7 +11,7 @@ import { Modal, Button } from 'antd';
 // styles
 import styled from 'styled-components';
 
-// added styles
+// added styles -- This stylying methodology can be changed out in refactor
 const MainWindowDiv = styled.div`
   display: flex;
   flex-direction: row;

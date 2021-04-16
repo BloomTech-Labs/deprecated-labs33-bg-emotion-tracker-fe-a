@@ -2,15 +2,48 @@ import React from 'react';
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
+// testing axios functionality ---> this will need to be changed later
+import axios from 'axios';
+
 const { Dragger } = Upload;
 
 function CsvUploader() {
+  const config = {
+    headers: { Authorization: `Bearer ${window.token}` },
+  };
+
+  const postCSV = csvFile => {
+    axios
+      .post(
+        'https://bg-emotion-tracker-be-a.herokuapp.com/members/upload',
+        csvFile,
+        config
+      )
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   const props = {
-    name: 'file',
-    multiple: true,
+    name: 'Member_ID_CSV',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    customRequest() {
+      // axios.post('https://bg-emotion-tracker-be-a.herokuapp.com/members/upload', csvFile)
+      // .then(res => {
+      //   console.log(res);
+      // })
+      // .catch(err =>
+      // {
+      //   console.log(err);
+      // });
+      console.log('Line 38 Test');
+    },
     onChange(info) {
       const { status } = info.file;
+      console.log(info.file);
       if (status !== 'uploading') {
         console.log(info.file, info.fileList);
       }
@@ -19,6 +52,7 @@ function CsvUploader() {
       } else if (status === 'error') {
         message.error(`${info.file.name} file upload failed.`);
       }
+      postCSV(info.file);
     },
   };
 
