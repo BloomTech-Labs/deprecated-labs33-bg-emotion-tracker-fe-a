@@ -1,4 +1,4 @@
-// We need to go through this Ant Design form and make sure it manipulates the corect input data.
+// Note: this form will take in a manual member id and will post it to a Spring BackEnd
 
 import React, { useState } from 'react';
 import { Form, Input, Button, Radio } from 'antd';
