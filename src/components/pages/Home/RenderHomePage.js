@@ -35,7 +35,13 @@ function RenderHomePage(props) {
         >
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
-            <Avatar size={100} gap="5" icon={<UserOutlined />} />
+            <Avatar
+              size={120}
+              gap="1"
+              style={{ margin: '16px 30px', width: '185px' }}
+              src="./BGC_logo2.png"
+              shape="square"
+            />
             <Menu.Item key="1" icon={<UserOutlined />}>
               <Link to="/program-table">Program Management</Link>
             </Menu.Item>
@@ -60,9 +66,12 @@ function RenderHomePage(props) {
               className="site-layout-background"
               style={{ padding: 24, minHeight: '100vh' }}
             >
-              <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1>
-              <MemberTable />
-              {/* <ProgramTable />
+
+              {/* <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1> */}
+              {/* <MemberTable />
+              <ProgramTable />
+              
+
               <ClubTable /> */}
             </div>
           </Content>
