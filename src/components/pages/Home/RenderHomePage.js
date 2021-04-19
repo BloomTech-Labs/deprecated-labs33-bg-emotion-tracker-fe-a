@@ -68,9 +68,8 @@ function RenderHomePage(props) {
             >
 
               {/* <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1> */}
-              {/* <MemberTable />
-              <ProgramTable />
-              
+              <MemberTable />
+              {/* <ProgramTable />
 
               <ClubTable /> */}
             </div>

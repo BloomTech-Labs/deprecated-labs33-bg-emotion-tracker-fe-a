@@ -46,13 +46,13 @@ const MemberTable = () => {
       </div>
 
       <Table dataSource={data}>
-        <Column title="DirectorID" dataIndex="memberID" key="memberID" />
-        <Column title="ClubID" dataIndex="clubID" key="clubID" />
+        <Column title="MemberID" dataIndex="memberID" key="memberID" />
+        {/* <Column title="ClubID" dataIndex="clubID" key="clubID" />
         <Column
           title="Miscellaneous"
           dataIndex="miscellaneousID"
           key="miscellaneousID"
-        />
+        /> */}
       </Table>
     </div>
   );
