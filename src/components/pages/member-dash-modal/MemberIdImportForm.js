@@ -48,9 +48,6 @@ const MemberIdImportForm = () => {
         <Form.Item>
           <Input placeholder="Member Id" />
         </Form.Item>
-        <Form.Item>
-          <Input placeholder="Club Id" />
-        </Form.Item>
         <Form.Item {...buttonItemLayout}>
           <Button type="primary">Enter</Button>
         </Form.Item>
