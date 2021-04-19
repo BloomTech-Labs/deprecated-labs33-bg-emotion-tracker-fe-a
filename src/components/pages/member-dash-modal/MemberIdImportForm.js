@@ -1,4 +1,4 @@
-// We need to go through this Ant Design form and make sure it manipulates the corect input data.
+// Note: this form will take in a manual member id and will post it to a Spring BackEnd
 
 import React, { useState } from 'react';
 import { Form, Input, Button, Radio } from 'antd';
@@ -47,9 +47,6 @@ const MemberIdImportForm = () => {
         <h3>Manual Member Entry</h3>
         <Form.Item>
           <Input placeholder="Member Id" />
-        </Form.Item>
-        <Form.Item>
-          <Input placeholder="Club Id" />
         </Form.Item>
         <Form.Item {...buttonItemLayout}>
           <Button type="primary">Enter</Button>
