@@ -6,6 +6,7 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 import { store } from '../src/state/index';
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
@@ -21,7 +22,10 @@ import { LoadingComponent } from './components/common';
 import { layoutTemplate } from './components/pages/view-layout';
 import { clubDashboard } from './components/pages/view-clubdash';
 
-import { memberModal } from './components/pages/index';
+// These two routes are for testing
+import { memberModal } from '../src/components/pages/member-dash-modal/index';
+
+// -----------
 
 ReactDOM.render(
   <Router>
