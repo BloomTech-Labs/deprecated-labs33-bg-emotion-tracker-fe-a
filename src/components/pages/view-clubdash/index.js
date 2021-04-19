@@ -1,1 +1,1 @@
-export { default as clubDashboard } from './ClubTable';
+export { default as ClubTable } from './ClubTable';

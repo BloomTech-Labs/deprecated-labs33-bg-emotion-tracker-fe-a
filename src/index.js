@@ -20,10 +20,11 @@ import { landingPage } from './components/pages/Landing';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { layoutTemplate } from './components/pages/view-layout';
-import { clubDashboard } from './components/pages/view-clubdash';
 
 // These two routes are for testing
 import { memberModal } from '../src/components/pages/member-dash-modal/index';
+import ClubTable from './components/pages/view-clubdash/ClubTable';
+import ProgramTable from './components/pages/view-programdash/ProgramTable';
 
 // -----------
 
@@ -58,14 +59,17 @@ function App() {
         {/* test route */}
         <Route path="/member-modal" component={memberModal} />
 
+        <Route path="/club-table" component={ClubTable} />
+        <Route path="/program-table" component={ProgramTable} />
+
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
-        <SecureRoute path="/dashboard-wrapper" component={layoutTemplate} />
-        <SecureRoute path="/clubdash-wrapper" component={clubDashboard} />
+        {/* <SecureRoute path="/dashboard-wrapper" component={layoutTemplate} />
+        <SecureRoute path="/clubdash-wrapper" component={clubDashboard} /> */}
         <Route component={NotFoundPage} />
       </Switch>
     </Security>

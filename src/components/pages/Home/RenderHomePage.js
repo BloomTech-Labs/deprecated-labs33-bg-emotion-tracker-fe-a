@@ -7,6 +7,7 @@ import MemberTable from '../view-memberdash/MemberTable';
 import { clubDashboard } from '../view-clubdash';
 import ProgramTable from '../view-programdash/ProgramTable';
 import ClubTable from '../view-clubdash/ClubTable';
+import { Link } from 'react-router-dom';
 
 const { Content, Sider } = Layout;
 
@@ -36,13 +37,13 @@ function RenderHomePage(props) {
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
             <Avatar size={100} gap="5" icon={<UserOutlined />} />
             <Menu.Item key="1" icon={<UserOutlined />}>
-              Program Management
+              <Link to="/program-table">Program Management</Link>
             </Menu.Item>
             <Menu.Item key="2" icon={<BookOutlined />}>
-              Member Management
+              <Link to="/">Member Management</Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<BookFilled />}>
-              Club Management
+              <Link to="/club-table">Club Management</Link>
             </Menu.Item>
             <Menu.Item key="4" icon={<UserOutlined />}>
               QR Generator
@@ -60,8 +61,8 @@ function RenderHomePage(props) {
               style={{ padding: 24, minHeight: '100vh' }}
             >
               <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1>
-              {/* <MemberTable />
-              <ProgramTable />
+              <MemberTable />
+              {/* <ProgramTable />
               <ClubTable /> */}
             </div>
           </Content>
