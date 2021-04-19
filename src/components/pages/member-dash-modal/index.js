@@ -1,1 +1,1 @@
-export { default as memberModal } from './MemberDashModalContainer';
+export { default as memberModal } from './RenderModal';

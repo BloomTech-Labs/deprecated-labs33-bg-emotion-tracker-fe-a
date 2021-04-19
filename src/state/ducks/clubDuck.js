@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 /******************************************************
-* CLUB ACTION TYPES
-******************************************************/
+ * CLUB ACTION TYPES
+ ******************************************************/
 
 const GET_CLUB_START = ' GET_PROGRAM_START';
 const GET_CLUB_SUCCESS = ' GET_PROGRAM_SUCCESS';
@@ -15,43 +15,37 @@ const GET_ALL_CLUBS_FAIL = 'GET_ALL_PROGRAMS_FAIL';
 const GET_ALL_CLUBS_RESOLVE = 'GET_ALL_PROGRAMS_RESOLVE';
 
 /******************************************************
-* CLUB ACTIONS
-******************************************************/
+ * CLUB ACTIONS
+ ******************************************************/
 
 export const clubActions = {
-    getAllClubsThunk: () => dispatch => {
-        axios
-        .get('')
-        .then((res) => {
-
-        })
-        .catch((err) => {
-
-        })
-        .finally(() => {
-
-        });
-    }
+  getAllClubsThunk: () => dispatch => {
+    axios
+      .get('')
+      .then(res => {})
+      .catch(err => {})
+      .finally(() => {});
+  },
 };
 
 /******************************************************
-* CLUB INITIALSTATE
-******************************************************/
+ * CLUB INITIALSTATE
+ ******************************************************/
 
 const clubsInitialState = {
-    status: 'idle',
-    err: '',
+  status: 'idle',
+  err: '',
 };
 
 /******************************************************
-* CLUB REDUCER
-******************************************************/
+ * CLUB REDUCER
+ ******************************************************/
 
 const clubsReducer = (state = clubsInitialState, action) => {
-    switch(action.type){
-        default:
-            return state;
-    }
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
 
 export default clubsReducer;

@@ -2,15 +2,29 @@ import React from 'react';
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-const { Dragger } = Upload;
+import axios from 'axios';
+import { axiosWithAuth } from './axioswithauth';
 
-function CsvUploader() {
+function CsvDragAndDrop() {
+  const { Dragger } = Upload;
+
+  let customRequest = () => {
+    // inside this function will be the axios call
+    axiosWithAuth()
+      .post('/members/upload')
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
+  };
+
   const props = {
     name: 'file',
-    multiple: true,
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     onChange(info) {
       const { status } = info.file;
+      console.log(info.file.getItem);
       if (status !== 'uploading') {
         console.log(info.file, info.fileList);
       }
@@ -19,6 +33,7 @@ function CsvUploader() {
       } else if (status === 'error') {
         message.error(`${info.file.name} file upload failed.`);
       }
+      console.log(info.file.fileList);
     },
   };
 
@@ -31,13 +46,9 @@ function CsvUploader() {
         <p className="ant-upload-text">
           Click or drag file to this area to upload
         </p>
-        <p className="ant-upload-hint">
-          Support for a single or bulk upload. Strictly prohibit from uploading
-          company data or other band files
-        </p>
       </Dragger>
     </div>
   );
 }
 
-export default CsvUploader;
+export default CsvDragAndDrop;

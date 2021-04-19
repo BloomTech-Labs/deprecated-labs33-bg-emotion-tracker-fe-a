@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 /******************************************************
-* MEMBER ACTION TYPES
-******************************************************/
+ * MEMBER ACTION TYPES
+ ******************************************************/
 
 const GET_MEMBER_START = ' GET_PROGRAM_START';
 const GET_MEMBER_SUCCESS = ' GET_PROGRAM_SUCCESS';
@@ -15,45 +15,37 @@ const GET_ALL_MEMBERS_FAIL = 'GET_ALL_PROGRAMS_FAIL';
 const GET_ALL_MEMBERS_RESOLVE = 'GET_ALL_PROGRAMS_RESOLVE';
 
 /******************************************************
-* MEMBER ACTIONS
-******************************************************/
+ * MEMBER ACTIONS
+ ******************************************************/
 
 export const memberActions = {
-    getAllMembersThunk: () => dispatch => {
-
-        axios
-        .get('')
-        .then((res) => {
-
-        })
-        .catch((err) => {
-
-        })
-        .finally(() => {
-
-        });
-    }
+  getAllMembersThunk: () => dispatch => {
+    axios
+      .get('')
+      .then(res => {})
+      .catch(err => {})
+      .finally(() => {});
+  },
 };
 
 /******************************************************
-* MEMBER INITIAL STATE
-******************************************************/
+ * MEMBER INITIAL STATE
+ ******************************************************/
 
 const memberInitialState = {
-    status: 'idle',
-    err: '',
+  status: 'idle',
+  err: '',
 };
 
 /******************************************************
-* MEMBER REDUCERS
-******************************************************/
+ * MEMBER REDUCERS
+ ******************************************************/
 
 const membersReducer = (state = memberInitialState, action) => {
-    switch(action.type){
-        default:
-            return state;
-    }
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
-
 
 export default membersReducer;

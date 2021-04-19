@@ -18,15 +18,16 @@ const MemberIdImportForm = () => {
             span: 4,
           },
           wrapperCol: {
-            span: 14,
+            span: 22,
           },
         }
       : null;
+
   const buttonItemLayout =
     formLayout === 'horizontal'
       ? {
           wrapperCol: {
-            span: 14,
+            span: 16,
             offset: 4,
           },
         }

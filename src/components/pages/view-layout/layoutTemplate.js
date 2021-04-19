@@ -3,11 +3,10 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import { Layout, Menu, Avatar } from 'antd';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
- 
- 
+
 const { Content, Sider } = Layout;
- 
-const layoutTemplate = (props) => {
+
+const layoutTemplate = props => {
   const { userInfo, authService } = props;
   return (
     <div>
@@ -26,7 +25,7 @@ const layoutTemplate = (props) => {
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
             <Avatar size={100} gap="5" icon={<UserOutlined />} />
-            <Menu.Item key="1" icon={<UserOutlined />}> 
+            <Menu.Item key="1" icon={<UserOutlined />}>
               Program Management
             </Menu.Item>
             <Menu.Item key="2" icon={<BookOutlined />}>
@@ -43,9 +42,9 @@ const layoutTemplate = (props) => {
             </Menu.Item>
           </Menu>
         </Sider>
- 
+
         <Layout>
-          <Content style={{ margin: '24px 16px 0', minHeight: '100vh'}}>
+          <Content style={{ margin: '24px 16px 0', minHeight: '100vh' }}>
             <div
               className="site-layout-background"
               style={{ padding: 24, minHeight: 100 }}
