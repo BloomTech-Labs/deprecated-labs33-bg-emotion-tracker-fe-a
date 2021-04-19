@@ -21,7 +21,8 @@ const LoginContainer = () => {
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
-          'primaryauth.title': 'Welcome to the BOYS & GIRLS CLUBS of AMERICA',
+          'primaryauth.title':
+            'Welcome to The BOYS & GIRLS CLUB of the Greater Conejo Valley',
           // change title for your app
         },
       },
