@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //Necessary common components for modul layout
-import CsvDragAndDrop from '../member-dash-modal/CsvDragAndDrop';
+import CsvDragAndDrop from './CsvDragAndDrop';
 
 import MemberIdImportForm from './MemberIdImportForm';
 
