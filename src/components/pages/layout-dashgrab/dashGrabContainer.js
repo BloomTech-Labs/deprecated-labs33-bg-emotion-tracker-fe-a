@@ -5,7 +5,7 @@ import { dashGrab } from '.';
 function DashGrabContainer ({ LoadingComponent }) {
     const { authState, authService } = useOktaAuth();
     const [userInfo, setUserInfo] = useState(null);
-
+    // eslint-disable-next-line
     const [memoAuthService] = useMemo(() => [authService], []);
 
     useEffect(() => {
