@@ -13,18 +13,17 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
 
-import { NotFoundPage } from './components/pages/NotFound';
-import { LoginPage } from './components/pages/Login';
-import { HomePage } from './components/pages/Home';
-import { landingPage } from './components/pages/Landing';
+import { NotFoundPage } from './components/pages/default-notfound';
+import { LoginPage } from './components/pages/default-login';
+import { landingPage } from './components/pages/default-landing';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-import { layoutTemplate } from './components/pages/view-layout';
 
 // These two routes are for testing
-import { memberModal } from '../src/components/pages/member-dash-modal/index';
+import { memberModal } from './components/pages/view-memberdash/modal-member/index';
 import ClubTable from './components/pages/view-clubdash/ClubTable';
 import ProgramTable from './components/pages/view-programdash/ProgramTable';
+import { DashGrabContainer } from './components/pages/layout-dashgrab/index';
 
 // -----------
 
@@ -62,14 +61,14 @@ function App() {
         <Route path="/club-table" component={ClubTable} />
         <Route path="/program-table" component={ProgramTable} />
 
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
+        {/* DashGrab will route from here */}
+
         <SecureRoute
           path="/"
           exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          component={() => <DashGrabContainer LoadingComponent={LoadingComponent} />}
         />
-        {/* <SecureRoute path="/dashboard-wrapper" component={layoutTemplate} />
-        <SecureRoute path="/clubdash-wrapper" component={clubDashboard} /> */}
+
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
