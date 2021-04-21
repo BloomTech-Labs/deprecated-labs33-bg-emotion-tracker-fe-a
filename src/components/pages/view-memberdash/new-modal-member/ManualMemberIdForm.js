@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { FormInput, FormButton } from '../../../common';
 import axios from 'axios';
 
-/*  What do I need in this component:
-    + handle change of screen on keystroke
-    + On submit sent axios request 
-
-
-
-*/
+import './styles/ManualImport.less';
 
 function ManualMemberIdForm() {
   const [memberId, setMemberId] = useState('');

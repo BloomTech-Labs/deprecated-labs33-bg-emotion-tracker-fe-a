@@ -4,7 +4,7 @@ import { Button } from '../../../common';
 import { FormInput, FormButton } from '../../../common';
 import axios from 'axios';
 
-import './csvImport.less';
+import './styles/csvImport.less';
 
 function CsvImport(props) {
   const { userInfo, authService } = props;
