@@ -39,7 +39,13 @@ const SuperAdminNav = props => {
           }}
         >
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
-            <Avatar size={100} gap="5" icon={<UserOutlined />} />
+            <Avatar
+              size={120}
+              gap="1"
+              style={{ margin: '16px 30px', width: '185px' }}
+              src="./BGC_logo2.png"
+              shape="square"
+            />
             <Menu.Item
               key="0"
               icon={<UserOutlined />}
@@ -85,7 +91,6 @@ const SuperAdminNav = props => {
             <>{renderSwitch(content)}</>
           </Content>
         </Layout>
-
       </Layout>
     </>
   );
