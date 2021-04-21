@@ -4,10 +4,10 @@ import axios from 'axios';
  * USER ACTION TYPES
  ******************************************************/
 
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
-export const LOGIN_RESOLVE = 'LOGIN_RESOLVE';
+export const GET_USER_START = 'LOGIN_START';
+export const GET_USER_SUCCESS = 'LOGIN_SUCCESS';
+export const GET_USER_FAIL = 'LOGIN_FAIL';
+export const GET_USER_RESOLVE = 'LOGIN_RESOLVE';
 
 /******************************************************
  * USER ACTIONS
@@ -15,19 +15,19 @@ export const LOGIN_RESOLVE = 'LOGIN_RESOLVE';
 
 export const userActions = {
   //GET USER INFO
-  loginThunk: () => dispatch => {
-    dispatch({ type: LOGIN_START });
+  getUserThunk: () => dispatch => {
+    dispatch({ type: GET_USER_START });
 
     axios
       .get('/users/getuserinfo')
       .then(res => {
-        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+        dispatch({ type: GET_USER_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        dispatch({ type: LOGIN_FAIL, payload: err.message });
+        dispatch({ type: GET_USER_FAIL, payload: err.message });
       })
       .finally(() => {
-        dispatch({ type: LOGIN_RESOLVE });
+        dispatch({ type: GET_USER_RESOLVE });
       });
   },
 };
@@ -51,9 +51,9 @@ export const userInitialState = {
 
 const userReducer = (state = userInitialState, action) => {
   switch (action.type) {
-    case LOGIN_START:
+    case GET_USER_START:
       return { ...state, status: 'edit/pending' };
-    case LOGIN_SUCCESS:
+    case GET_USER_SUCCESS:
       return {
         ...state,
         userid: action.payload.userid,
@@ -62,9 +62,9 @@ const userReducer = (state = userInitialState, action) => {
         roles: action.payload.roles[0].role.name,
         status: 'edit/success',
       };
-    case LOGIN_FAIL:
+    case GET_USER_FAIL:
       return { ...state, status: 'edit/error' };
-    case LOGIN_RESOLVE:
+    case GET_USER_RESOLVE:
       return { ...state, status: 'idle' };
     default:
       return state;

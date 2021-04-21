@@ -1,15 +1,12 @@
+import { Avatar, Layout, Menu } from 'antd';
+import Sider from 'antd/lib/layout/Sider';
 import React from 'react';
-// import { Button } from '../../common';
-// import { Link } from 'react-router-dom';
-import { Layout, Menu, Avatar } from 'antd';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
 
-const { Content, Sider } = Layout;
-
-const layoutTemplate = props => {
-  const { userInfo, authService } = props;
+const SuperAdminNav = ({ props }) => {
+  const { authService } = props;
   return (
-    <div>
+    <>
       <Layout>
         <Sider
           breakpoint="lg"
@@ -22,9 +19,11 @@ const layoutTemplate = props => {
             console.log(collapsed, type);
           }}
         >
-          <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
             <Avatar size={100} gap="5" icon={<UserOutlined />} />
+            <Menu.Item key="1" icon={<UserOutlined />}>
+              Dashboard
+            </Menu.Item>
             <Menu.Item key="1" icon={<UserOutlined />}>
               Program Management
             </Menu.Item>
@@ -42,19 +41,9 @@ const layoutTemplate = props => {
             </Menu.Item>
           </Menu>
         </Sider>
-
-        <Layout>
-          <Content style={{ margin: '24px 16px 0', minHeight: '100vh' }}>
-            <div
-              className="site-layout-background"
-              style={{ padding: 24, minHeight: 100 }}
-            >
-              <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1>
-            </div>
-          </Content>
-        </Layout>
       </Layout>
-    </div>
+    </>
   );
 };
-export default layoutTemplate;
+
+export default SuperAdminNav;
