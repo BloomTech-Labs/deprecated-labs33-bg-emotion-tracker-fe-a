@@ -41,7 +41,7 @@ const MemberTable = () => {
           <h1>Member Management</h1>
         </div>
         <div>
-          <button>ADD MEMEBER</button>
+          <button>ADD MEMBER</button>
         </div>
       </div>
 
