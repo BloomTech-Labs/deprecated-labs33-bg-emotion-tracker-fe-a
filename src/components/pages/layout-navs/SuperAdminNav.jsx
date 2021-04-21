@@ -1,5 +1,4 @@
 import { Avatar, Layout, Menu } from 'antd';
-// import Sider from 'antd/lib/layout/Sider';
 import React, { useState } from 'react';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
@@ -15,12 +14,12 @@ const SuperAdminNav = props => {
     switch (contentType) {
       case 'members':
         return <MemberTable />;
-      // case("programs"):
-      //     return <ProgramTable />
-      // case("clubs"):
-      //     return <ClubTable />
-      case '':
-        return <div></div>;
+      case 'programs':
+        return <div>Program Table will go here </div>;
+      case 'clubs':
+        return <div>Club Table will go here </div>;
+      case 'qrcodes':
+        return <div>QR Code generator will go here</div>;
       default:
         return <div></div>;
     }
