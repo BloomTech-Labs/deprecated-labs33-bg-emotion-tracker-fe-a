@@ -85,6 +85,7 @@ const SuperAdminNav = props => {
             <>{renderSwitch(content)}</>
           </Content>
         </Layout>
+
       </Layout>
     </>
   );

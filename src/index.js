@@ -20,11 +20,12 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
 // These two routes are for testing
-import { memberModal } from './components/pages/view-memberdash/modal-member/index';
 import ClubTable from './components/pages/view-clubdash/ClubTable';
 import ProgramTable from './components/pages/view-programdash/ProgramTable';
 import { DashGrabContainer } from './components/pages/layout-dashgrab/index';
+// this below component is for testing
 
+import MemberTable from './components/pages/view-memberdash/MemberTable';
 // -----------
 
 ReactDOM.render(
@@ -56,7 +57,8 @@ function App() {
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={landingPage} />
         {/* test route */}
-        <Route path="/member-modal" component={memberModal} />
+
+        <Route path="/member-table" component={MemberTable} />
 
         <Route path="/club-table" component={ClubTable} />
         <Route path="/program-table" component={ProgramTable} />
@@ -66,7 +68,9 @@ function App() {
         <SecureRoute
           path="/"
           exact
-          component={() => <DashGrabContainer LoadingComponent={LoadingComponent} />}
+          component={() => (
+            <DashGrabContainer LoadingComponent={LoadingComponent} />
+          )}
         />
 
         <Route component={NotFoundPage} />

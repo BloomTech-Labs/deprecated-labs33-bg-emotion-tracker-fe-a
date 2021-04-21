@@ -66,7 +66,6 @@ function RenderHomePage(props) {
               className="site-layout-background"
               style={{ padding: 24, minHeight: '100vh' }}
             >
-
               {/* <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1> */}
               <MemberTable />
               {/* <ProgramTable />

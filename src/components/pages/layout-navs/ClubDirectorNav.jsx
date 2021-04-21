@@ -1,10 +1,7 @@
 import React from 'react';
 
 const ClubDirectorNav = ({ props }) => {
-    return (
-        <>
-        </>
-    );
+  return <></>;
 };
 
 export default ClubDirectorNav;
