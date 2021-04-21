@@ -24,6 +24,8 @@ import { memberModal } from './components/pages/view-memberdash/modal-member/ind
 import ClubTable from './components/pages/view-clubdash/ClubTable';
 import ProgramTable from './components/pages/view-programdash/ProgramTable';
 import { DashGrabContainer } from './components/pages/layout-dashgrab/index';
+// this below component is for testing
+import Test from './components/pages/view-memberdash/modal-member/Test-Modal/RenderModal';
 
 // -----------
 
@@ -56,7 +58,7 @@ function App() {
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={landingPage} />
         {/* test route */}
-        <Route path="/member-modal" component={memberModal} />
+        <Route path="/member-modal" component={Test} />
 
         <Route path="/club-table" component={ClubTable} />
         <Route path="/program-table" component={ProgramTable} />
