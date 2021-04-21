@@ -86,6 +86,7 @@ const MemberTable = () => {
           <h1>Member Management</h1>
         </div>
         <div>
+
           <Button type="primary" onClick={showModal}>
             Add Members
           </Button>

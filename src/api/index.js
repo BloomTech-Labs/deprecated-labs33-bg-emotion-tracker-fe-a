@@ -1,24 +1,33 @@
 import axios from 'axios';
 
 // we will define a bunch of API calls here.
-const apiUrl = `${process.env.REACT_APP_API_URI}/profiles`;
 
-const sleep = time =>
-  new Promise(resolve => {
-    setTimeout(resolve, time);
-  });
-
-const getExampleData = () => {
-  return axios
-    .get(`https://jsonplaceholder.typicode.com/photos?albumId=1`)
-    .then(response => response.data);
-};
+const baseUrl = 'https://bg-emotion-tracker-be-a.herokuapp.com';
 
 const getAuthHeader = authState => {
   if (!authState.isAuthenticated) {
     throw new Error('Not authenticated');
   }
-  return { Authorization: `Bearer ${authState.idToken}` };
+  return { Authorization: `Bearer ${authState.accessToken}` };
+};
+
+const getUserData = (url, authState) => {
+  try {
+    return axios
+      .get(`${baseUrl}${url}`, { headers: getAuthHeader(authState) })
+      .then(response => response.data);
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+const getExampleData = () => {
+  return axios
+    .get(`https://jsonplaceholder.typicode.com/photos?albumId=1`)
+    .then(response => response.data);
 };
 
 const getDSData = (url, authState) => {
@@ -34,19 +43,5 @@ const getDSData = (url, authState) => {
     .catch(err => err);
 };
 
-const apiAuthGet = authHeader => {
-  return axios.get(apiUrl, { headers: authHeader });
-};
+export { getUserData };
 
-const getProfileData = authState => {
-  try {
-    return apiAuthGet(getAuthHeader(authState)).then(response => response.data);
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
-  }
-};
-
-export { sleep, getExampleData, getProfileData, getDSData, getAuthHeader };
