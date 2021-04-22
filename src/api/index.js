@@ -43,5 +43,5 @@ const getDSData = (url, authState) => {
     .catch(err => err);
 };
 
-export { getUserData };
+export { getUserData, getAuthHeader };
 

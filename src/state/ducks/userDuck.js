@@ -4,10 +4,10 @@ import axios from 'axios';
  * USER ACTION TYPES
  ******************************************************/
 
-export const GET_USER_START = 'LOGIN_START';
-export const GET_USER_SUCCESS = 'LOGIN_SUCCESS';
-export const GET_USER_FAIL = 'LOGIN_FAIL';
-export const GET_USER_RESOLVE = 'LOGIN_RESOLVE';
+export const GET_USER_START = 'GET_USER_START';
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+export const GET_USER_FAIL = 'GET_USER_FAIL';
+export const GET_USER_RESOLVE = 'GET_USER_RESOLVE';
 
 /******************************************************
  * USER ACTIONS
@@ -15,20 +15,20 @@ export const GET_USER_RESOLVE = 'LOGIN_RESOLVE';
 
 export const userActions = {
   //GET USER INFO
-  getUserThunk: () => dispatch => {
+  getUserThunk: (dispatch, headers) => {
     dispatch({ type: GET_USER_START });
 
     axios
-      .get('/users/getuserinfo')
+      .get('https://bg-emotion-tracker-be-a.herokuapp.com/users/getuserinfo', headers)
       .then(res => {
         dispatch({ type: GET_USER_SUCCESS, payload: res.data });
       })
       .catch(err => {
         dispatch({ type: GET_USER_FAIL, payload: err.message });
-      })
-      .finally(() => {
-        dispatch({ type: GET_USER_RESOLVE });
       });
+      // .finally(() => {
+      //   dispatch({ type: GET_USER_RESOLVE });
+      // });
   },
 };
 
@@ -50,9 +50,10 @@ export const userInitialState = {
  ******************************************************/
 
 const userReducer = (state = userInitialState, action) => {
+  console.log("Reducer hit:", action);
   switch (action.type) {
     case GET_USER_START:
-      return { ...state, status: 'edit/pending' };
+      return { status: 'edit/pending' };
     case GET_USER_SUCCESS:
       return {
         ...state,

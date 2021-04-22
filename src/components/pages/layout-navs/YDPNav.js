@@ -1,7 +1,10 @@
 import React from 'react';
 
 const YDPNav = () => {
-  return <></>;
+  return (
+  <>
+  </>
+  );
 };
 
 export default YDPNav;

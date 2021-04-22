@@ -4,7 +4,7 @@ import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 import MemberTable from '../view-memberdash/MemberTable';
 
-const SuperAdminNav = props => {
+const SuperAdminNav = (props) => {
   const { authService } = useOktaAuth();
   const { Content, Sider } = Layout;
   const [content, setContent] = useState('');
