@@ -1,2 +1,2 @@
 export { default as DashGrabContainer } from './dashGrabContainer';
-export { default as dashGrab } from './dashGrab';
+export { default as DashGrab } from './dashGrab';

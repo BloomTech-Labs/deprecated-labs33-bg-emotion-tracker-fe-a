@@ -14,12 +14,11 @@ const DashGrabContainer = ({ LoadingComponent }) => {
   const [memoAuthService] = useMemo(() => [authService], []);
   
   const authedHeaders = getAuthHeader(authState);
-  const auth = getAuthHeader(authState);
 
   useEffect(() => {
     let isSubscribed = true;
     // userActions.getUserThunk(dispatch, { headers : authedHeaders });
-    userActions.getUserThunk(dispatch, { headers: auth});
+    userActions.getUserThunk(dispatch, { headers: authedHeaders });
     memoAuthService
       .getUser()
       .then(info => {
