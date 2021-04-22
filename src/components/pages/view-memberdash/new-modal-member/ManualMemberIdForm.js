@@ -4,13 +4,15 @@ import axios from 'axios';
 
 import './styles/ManualImport.less';
 
-function ManualMemberIdForm() {
+function ManualMemberIdForm(props) {
+  const { newMemberId, setNewMemberId } = props;
   const [memberId, setMemberId] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.target;
     setMemberId(value);
     console.log(value);
+    setNewMemberId([value]);
   };
 
   const handleSubmit = e => {
