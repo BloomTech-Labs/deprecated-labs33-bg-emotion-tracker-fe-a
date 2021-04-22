@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Papa from 'papaparse';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../common';
 import { FormInput, FormButton } from '../../../common';
@@ -7,13 +8,30 @@ import axios from 'axios';
 import './styles/csvImport.less';
 
 function CsvImport(props) {
-  const { userInfo, authService } = props;
+  const { userInfo, authService, newMemberId, setNewMemberId } = props;
   const [file, setFile] = useState();
 
   const handleChange = e => {
     setFile(e.target.files[0]);
   };
+
+  const parsing = Csvfile => {
+    Papa.parse(Csvfile, {
+      download: true,
+      header: true,
+      complete: function(results) {
+        let memberId = [];
+        for (let i = 0; i < results.data.length; i++) {
+          memberId.push(results.data[i].memberid);
+        }
+        setNewMemberId(memberId);
+      },
+    });
+  };
+
   const handleSubmit = e => {
+    parsing(file);
+
     e.preventDefault();
 
     let formData = new FormData();

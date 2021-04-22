@@ -2,6 +2,7 @@
 This component will most likely replace the program dash. I was with christopher 
 */
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import axios from 'axios';
 
@@ -9,6 +10,7 @@ import axios from 'axios';
 import { Modal, Button } from 'antd';
 import CsvImport from './new-modal-member/CsvImport';
 import ManualMemberIdForm from './new-modal-member/ManualMemberIdForm';
+import QRCodeGenerator from './new-modal-member/QRCodeRender';
 
 import './new-modal-member/styles/renderModal.less';
 
@@ -18,9 +20,18 @@ const MemberTable = () => {
   // ------- 4/21 modal state code ------------
   const [visible, setVisible] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
+  // ID QR gen
+  const [newMemberId, setNewMemberId] = useState([]);
+  const [toggle, setToggle] = useState(false);
+
+  const history = useHistory();
 
   const showModal = () => {
     setVisible(true);
+  };
+
+  const QRredirect = () => {
+    setToggle(!toggle);
   };
 
   const handleOk = () => {
@@ -73,6 +84,8 @@ const MemberTable = () => {
 
   const { Column } = Table;
 
+  console.log('members', members);
+
   return (
     <div>
       <div
@@ -86,7 +99,11 @@ const MemberTable = () => {
           <h1>Member Management</h1>
         </div>
         <div>
-
+          {newMemberId.length > 0 && (
+            <Button type="primary" onClick={QRredirect}>
+              Print New ID's
+            </Button>
+          )}
           <Button type="primary" onClick={showModal}>
             Add Members
           </Button>
@@ -101,18 +118,27 @@ const MemberTable = () => {
       >
         <div className="mainDisplayWindow">
           <div className="manualFormWindow">
-            <ManualMemberIdForm />
+            <ManualMemberIdForm
+              newMemberId={newMemberId}
+              setNewMemberId={setNewMemberId}
+            />
           </div>
 
           <div className="csvDisplayWindow">
-            <CsvImport />
+            <CsvImport
+              newMemberId={newMemberId}
+              setNewMemberId={setNewMemberId}
+            />
           </div>
         </div>
       </Modal>
       {/* end of modal rendering code  */}
-      <Table dataSource={members}>
-        <Column title="MemberID" dataIndex="memberID" key="memberID" />
-      </Table>
+      {toggle === false && (
+        <Table dataSource={members}>
+          <Column title="MemberID" dataIndex="memberID" key="memberID" />
+        </Table>
+      )}
+      {toggle === true && <QRCodeGenerator newMemberId={newMemberId} />}
     </div>
   );
 };
