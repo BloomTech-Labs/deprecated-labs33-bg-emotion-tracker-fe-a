@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 import MemberTable from '../view-memberdash/MemberTable';
+import ProgramTable from '../view-programdash/ProgramTable';
 
 const SuperAdminNav = props => {
   const { authService } = useOktaAuth();
@@ -15,7 +16,7 @@ const SuperAdminNav = props => {
       case 'members':
         return <MemberTable />;
       case 'programs':
-        return <div>Program Table will go here </div>;
+        return <ProgramTable />;
       case 'clubs':
         return <div>Club Table will go here </div>;
       case 'qrcodes':
