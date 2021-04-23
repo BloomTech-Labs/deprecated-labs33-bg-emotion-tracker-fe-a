@@ -15,23 +15,15 @@ function CsvImport(props) {
     setFile(e.target.files[0]);
   };
 
-  const parsing = Csvfile => {
-    Papa.parse(Csvfile, {
-      download: true,
-      header: true,
-      complete: function(results) {
-        let memberId = [];
-        for (let i = 0; i < results.data.length; i++) {
-          memberId.push(results.data[i].memberid);
-        }
-        setNewMemberId(memberId);
-      },
-    });
+  const parsing = memberIdArray => {
+    let memberId = [];
+    for (let i = 0; i < memberIdArray.length; i++) {
+      memberId.push(memberIdArray[i].memberid);
+    }
+    setNewMemberId(memberId);
   };
 
   const handleSubmit = e => {
-    parsing(file);
-
     e.preventDefault();
 
     let formData = new FormData();
@@ -55,7 +47,7 @@ function CsvImport(props) {
       )
       .then(res => {
         alert('Success! Members added to the Database');
-        console.log(res);
+        parsing(res.data);
       })
       .catch(err => {
         alert('An error occurred');
