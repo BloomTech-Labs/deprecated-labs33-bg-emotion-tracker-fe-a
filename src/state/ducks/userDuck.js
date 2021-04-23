@@ -14,7 +14,6 @@ export const GET_USER_RESOLVE = 'GET_USER_RESOLVE';
  ******************************************************/
 
 export const userActions = {
-  //GET USER INFO
   getUserThunk: (dispatch, headers) => {
     dispatch({ type: GET_USER_START });
 
@@ -25,10 +24,10 @@ export const userActions = {
       })
       .catch(err => {
         dispatch({ type: GET_USER_FAIL, payload: err.message });
+      })
+      .finally(() => {
+        dispatch({ type: GET_USER_RESOLVE });
       });
-      // .finally(() => {
-      //   dispatch({ type: GET_USER_RESOLVE });
-      // });
   },
 };
 

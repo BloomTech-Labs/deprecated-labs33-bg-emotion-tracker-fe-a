@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import { ClubDirectorNav, SuperAdminNav, YDPNav } from '../layout-navs';
 
 const DashGrab = props => {
-  // const role = props.loggedInUser.roles[0].role.name;
   const { roles } = useSelector(state => state.user);
   console.log("Dashgrab State:", roles);
 

@@ -3,7 +3,6 @@ import {
   userReducer,
   programsReducer,
   membersReducer,
-  clubsReducer,
 } from './ducks';
 
 import thunk from 'redux-thunk';
@@ -19,7 +18,6 @@ export const rootReducer = combineReducers({
   user: userReducer,
   programs: programsReducer,
   members: membersReducer,
-  clubs: clubsReducer,
 });
 
 export const store = createStoreWithMiddleware(

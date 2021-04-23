@@ -12,13 +12,14 @@ const DashGrabContainer = ({ LoadingComponent }) => {
 
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-  
-  const authedHeaders = getAuthHeader(authState);
+
+  // getAuthHeader requests auth headers and passes Oktas AuthState
+  const auth = getAuthHeader(authState);
 
   useEffect(() => {
     let isSubscribed = true;
-    // userActions.getUserThunk(dispatch, { headers : authedHeaders });
-    userActions.getUserThunk(dispatch, { headers: authedHeaders });
+    //Dispatches getUserThunk from our userDuck
+    userActions.getUserThunk(dispatch, { headers: auth});
     memoAuthService
       .getUser()
       .then(info => {
@@ -38,10 +39,10 @@ const DashGrabContainer = ({ LoadingComponent }) => {
 
   return (
     <>
-      {authState.isAuthenticated && !userInfo && !authedHeaders && (
+      {authState.isAuthenticated && !userInfo && !auth && (
         <LoadingComponent message="Fetching user profile..." />
       )}
-      {authState.isAuthenticated && userInfo && authedHeaders && (
+      {authState.isAuthenticated && userInfo && auth && (
         <DashGrab
           userInfo={userInfo}
           authService={authService}
