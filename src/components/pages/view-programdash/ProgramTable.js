@@ -1,108 +1,111 @@
-import React from 'react';
-import { Layout, Menu, Avatar, Table } from 'antd';
-import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Table } from 'antd';
+import axios from 'axios';
 
-const { Content, Sider } = Layout;
-const ProgramTable = props => {
-  /*this is dummy data, it will be deleted. */
+import { Modal, Button } from 'antd';
+import CsvProgramImport from './CsvProgramImport';
+// import ManualProgramIdForm from './ManualProgramIdForm';
+
+const ProgramTable = () => {
+  const [visible, setVisible] = React.useState(false);
+  const [confirmLoading, setConfirmLoading] = React.useState(false);
+
+  const showModal = () => {
+    setVisible(true);
+  };
+
+  const handleOk = () => {
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setVisible(false);
+      setConfirmLoading(false);
+    }, 2000);
+  };
+
+  const handleCancel = () => {
+    console.log('Clicked cancel button');
+    setVisible(false);
+  };
+
+  const [programs, setPrograms] = useState([]);
+  console.log(programs, 'programs');
+
+  const tokens = JSON.parse(localStorage.getItem('okta-token-storage'));
+  const access_token = tokens.accessToken.accessToken;
+
+  const newData = [];
+  const dataConverter = data => {
+    // console.log(data,'dataconverter');
+    for (let i = 0; i < data.length; i++) {
+      newData.push({
+        key: i,
+        programID: data[i].programid,
+        name: data[i].name,
+      });
+    }
+    setPrograms(newData);
+  };
+
+  useEffect(() => {
+    axios
+      .get(`https://bg-emotion-tracker-be-a.herokuapp.com/programs/programs`, {
+        headers: {
+          Authorization: 'Bearer ' + access_token,
+        },
+      })
+      .then(res => {
+        console.log(res.data);
+        dataConverter(res.data);
+      })
+      .catch(error => {
+        console.log('This is you error --->', error);
+      });
+    // eslint-disable-next-line
+  }, []);
+
   const { Column } = Table;
-  const { userInfo, authService } = props;
-  const data = [
-    {
-      key: '1',
-      memberID: 968987,
-      clubID: 192834,
-      miscellaneousID: 'This member is the leader of club #928374',
-    },
-    {
-      key: '2',
-      memberID: 123456,
-      clubID: 192735,
-      miscellaneousID: 'This member is the associate director of club #833989',
-    },
-    {
-      key: '3',
-      memberID: 654321,
-      clubID: 982361,
-      miscellaneousID: 'This member is the director of club #199876 ',
-    },
-  ];
 
   return (
-    <Layout>
-      <Sider
-        breakpoint="lg"
-        width="250"
-        collapsedWidth="0"
-        onBreakpoint={broken => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
+    <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '10px',
         }}
       >
-        <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
-          <Avatar size={100} gap="5" icon={<UserOutlined />} />
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            <Link to="/program-table">Program Management</Link>
-          </Menu.Item>
-          <Menu.Item key="2" icon={<BookOutlined />}>
-            <Link to="/">Member Management</Link>
-          </Menu.Item>
-          <Menu.Item key="3" icon={<BookFilled />}>
-            <Link to="/club-table">Club Management</Link>
-          </Menu.Item>
-          <Menu.Item key="4" icon={<UserOutlined />}>
-            QR Generator
-          </Menu.Item>
-          <Menu.Item key="5" onClick={() => authService.logout()}>
-            Logout
-          </Menu.Item>
-        </Menu>
-      </Sider>
+        <div>
+          <h1>Program Management</h1>
+        </div>
+        <div>
+          <Button type="primary" onClick={showModal}>
+            Add Programs
+          </Button>
+        </div>
+      </div>
+      {/* The modal only appears on button click  */}
+      <Modal
+        visible={visible}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        <div className="mainDisplayWindow">
+          {/* <div className="manualFormWindow">
+            <ManualProgramIdForm />
+          </div> */}
 
-      <Layout>
-        <Content style={{ margin: '24px 16px 0' }}>
-          <div
-            className="site-layout-background"
-            style={{ padding: 24, minHeight: '100vh' }}
-          >
-            <div>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  padding: '10px',
-                }}
-              >
-                <div>
-                  <h1>Program Management</h1>
-                </div>
-                <div>
-                  <button>ADD Progam</button>
-                </div>
-              </div>
-
-              <Table dataSource={data}>
-                <Column
-                  title="DirectorID"
-                  dataIndex="memberID"
-                  key="memberID"
-                />
-                <Column title="ClubID" dataIndex="clubID" key="clubID" />
-                <Column
-                  title="Miscellaneous"
-                  dataIndex="miscellaneousID"
-                  key="miscellaneousID"
-                />
-              </Table>
-            </div>
+          <div className="csvDisplayWindow">
+            <CsvProgramImport />
           </div>
-        </Content>
-      </Layout>
-    </Layout>
+        </div>
+      </Modal>
+      {/* end of modal rendering code  */}
+      <Table dataSource={programs}>
+        <Column title="ProgramID" dataIndex="name" key="programID" />
+      </Table>
+    </div>
   );
 };
+
 export default ProgramTable;
