@@ -101,7 +101,7 @@ const MemberTable = () => {
         <div>
           {newMemberId.length > 0 && (
             <Button type="primary" onClick={QRredirect}>
-              Print New ID's
+              Create New ID's
             </Button>
           )}
           <Button type="primary" onClick={showModal}>
