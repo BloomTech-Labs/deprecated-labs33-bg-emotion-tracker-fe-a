@@ -17,10 +17,6 @@ const SuperAdminNav = props => {
         return <MemberTable />;
       case 'programs':
         return <ProgramTable />;
-      case 'clubs':
-        return <div>Club Table will go here </div>;
-      case 'qrcodes':
-        return <div>QR Code generator will go here</div>;
       default:
         return <div></div>;
     }
@@ -56,33 +52,19 @@ const SuperAdminNav = props => {
             </Menu.Item>
             <Menu.Item
               key="1"
-              icon={<UserOutlined />}
+              icon={<BookOutlined />}
               onClick={() => setContent('programs')}
             >
               Program Management
             </Menu.Item>
             <Menu.Item
               key="2"
-              icon={<BookOutlined />}
+              icon={<UserOutlined />}
               onClick={() => setContent('members')}
             >
               Member Management
             </Menu.Item>
-            <Menu.Item
-              key="3"
-              icon={<BookFilled />}
-              onClick={() => setContent('clubs')}
-            >
-              Club Management
-            </Menu.Item>
-            <Menu.Item
-              key="4"
-              icon={<UserOutlined />}
-              onClick={() => setContent('qrcodes')}
-            >
-              QR Generator
-            </Menu.Item>
-            <Menu.Item key="5" onClick={() => authService.logout()}>
+            <Menu.Item key="3" onClick={() => authService.logout()}>
               Logout
             </Menu.Item>
           </Menu>
