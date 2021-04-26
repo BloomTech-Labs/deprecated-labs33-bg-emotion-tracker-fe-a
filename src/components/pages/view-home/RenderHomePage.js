@@ -1,12 +1,7 @@
 import React from 'react';
-// import { Button } from '../../common';
-// import { Link } from 'react-router-dom';
 import { Layout, Menu, Avatar } from 'antd';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
 import MemberTable from '../view-memberdash/MemberTable';
-import { clubDashboard } from '../view-clubdash';
-import ProgramTable from '../view-programdash/ProgramTable';
-import ClubTable from '../view-clubdash/ClubTable';
 import { Link } from 'react-router-dom';
 
 const { Content, Sider } = Layout;
@@ -15,12 +10,6 @@ function RenderHomePage(props) {
   const { userInfo, authService } = props;
   return (
     <div>
-      {/* <p>
-          <Link to="dashboard-wrapper">dashboardWrapper</Link>
-        </p>
-        <p>
-          <Link to="clubdash-wrapper">clubDashWrapper</Link>
-        </p> */}
       <Layout>
         <Sider
           breakpoint="lg"
@@ -66,11 +55,7 @@ function RenderHomePage(props) {
               className="site-layout-background"
               style={{ padding: 24, minHeight: '100vh' }}
             >
-              {/* <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1> */}
               <MemberTable />
-              {/* <ProgramTable />
-
-              <ClubTable /> */}
             </div>
           </Content>
         </Layout>

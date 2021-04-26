@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormInput, FormButton } from '../../../common';
+import { FormButton } from '../../../common';
 import axios from 'axios';
 
 import './styles/ManualImport.less';
@@ -11,16 +11,11 @@ function ManualMemberIdForm(props) {
   const handleChange = e => {
     const { name, value } = e.target;
     setMemberId(value);
-    console.log(value);
     setNewMemberId([value]);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(typeof memberId);
-
-    // let formData = new FormData();
-    // formData.append('newmember', memberId);
 
     const tokens = JSON.parse(localStorage.getItem('okta-token-storage'));
     const access_token = tokens.accessToken.accessToken;
