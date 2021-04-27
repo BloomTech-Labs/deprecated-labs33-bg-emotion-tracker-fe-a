@@ -2,7 +2,7 @@
 
 ### A Tracker aimed towards recording the emotional sentiment of members attending BGCA activities, this iteration allows for authentication on Oktas sign-in widget, navigation of a dashboard-type application, upload and parsing of .csv containing program information and member information accordingly, also the ability to generate and print .pdf version of member ID cards with corresponding QR code's on them.
 
- All features discussed :point_up: will be explained in further detail below
+ (All features discussed :point_up: will be explained in further detail below)
 
 #  Collaborators :robot:
 
@@ -57,14 +57,15 @@ DB Schema explaining each table on back-end RDBMS
 
 ## Member Management
 ![Image of Member Management](.src/styles/images/view-member.png)
+Member Management view
 - [x] Visualization for display of all member's currently in system
-- [x] Ability to open extended modal window allowing for the upload of .csv containing member information
-- [x] TBD
+- [x] Ability to open extended modal window allowing for the upload of .csv containing member information or the option of adding a member manually via ID.
+- [x] The ability to create new ID's flaunting a unique QR code that can then be converted to .pdf form and printed off at will.
 
 ## Program Management
 ![Image of Program Management](.src/styles/images/view-program.png)
 <br>
-Program Management Page.
+Program Management view.
 - [x] Visualization for display of all program's currently in system
 - [x] Ability to open extended modal window allowing for the upload of .csv containing program information
 - [x] TBD
