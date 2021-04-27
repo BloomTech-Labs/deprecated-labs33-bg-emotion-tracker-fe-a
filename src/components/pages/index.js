@@ -1,6 +1,5 @@
-export { clubDashboard } from './view-clubdash';
-export { mainDashboard } from './view-maindash';
-export { memberDashboard } from './view-memberdash';
-// export { programDashboard } from './view-programdash';
+export { ClubDashboard } from './view-clubdash';
+export { MainDashboard } from './view-maindash';
+export { MemberDashboard } from './view-memberdash';
 export { LandingPage } from './Landing';
-export { memberModal } from './member-dash-modal';
+export { MemberModal } from './member-dash-modal';
