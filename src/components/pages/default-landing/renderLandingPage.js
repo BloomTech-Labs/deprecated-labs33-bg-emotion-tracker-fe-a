@@ -1,5 +1,5 @@
 // This component will be in tended for someone who logs into the system but does not have a role and therefore the
-// application does not know which dashboard to load up
+// application does not know which dashboard to load up.
 import React from 'react';
 import { Link } from 'react-router-dom';
 

@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import { Modal, Button } from 'antd';
 import CsvProgramImport from './CsvProgramImport';
-// import ManualProgramIdForm from './ManualProgramIdForm';
 
 const ProgramTable = () => {
   const [visible, setVisible] = React.useState(false);
@@ -28,14 +27,12 @@ const ProgramTable = () => {
   };
 
   const [programs, setPrograms] = useState([]);
-  console.log(programs, 'programs');
 
   const tokens = JSON.parse(localStorage.getItem('okta-token-storage'));
   const access_token = tokens.accessToken.accessToken;
 
   const newData = [];
   const dataConverter = data => {
-    // console.log(data,'dataconverter');
     for (let i = 0; i < data.length; i++) {
       newData.push({
         key: i,
@@ -54,7 +51,6 @@ const ProgramTable = () => {
         },
       })
       .then(res => {
-        console.log(res.data);
         dataConverter(res.data);
       })
       .catch(error => {
@@ -91,10 +87,6 @@ const ProgramTable = () => {
         onCancel={handleCancel}
       >
         <div className="mainDisplayWindow">
-          {/* <div className="manualFormWindow">
-            <ManualProgramIdForm />
-          </div> */}
-
           <div className="csvDisplayWindow">
             <CsvProgramImport />
           </div>

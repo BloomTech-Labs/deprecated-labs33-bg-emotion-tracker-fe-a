@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../../../common';
-import { FormInput, FormButton } from '../../../common';
+import { FormButton } from '../../../common';
 import axios from 'axios';
 
 import './styles/csvImport.less';
@@ -56,7 +54,6 @@ function CsvImport(props) {
 
   return (
     <div className="mainWindow">
-      {/* put an image */}
       <div>
         <img
           src="https://img.icons8.com/android/96/000000/upload.png"

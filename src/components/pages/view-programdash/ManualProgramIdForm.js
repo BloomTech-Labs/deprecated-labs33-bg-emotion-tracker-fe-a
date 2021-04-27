@@ -8,12 +8,10 @@ function ManualProgramIdForm() {
   const handleChange = e => {
     const { value } = e.target;
     setMemberId(value);
-    console.log(value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(typeof memberId);
 
     const tokens = JSON.parse(localStorage.getItem('okta-token-storage'));
     const access_token = tokens.accessToken.accessToken;
