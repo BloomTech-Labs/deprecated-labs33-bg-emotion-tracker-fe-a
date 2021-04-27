@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function renderLandingPage(props) {
+function RenderLandingPage(props) {
   return (
     <div>
       <h1>Welcome to Labs Basic SPA</h1>
@@ -19,4 +19,4 @@ function renderLandingPage(props) {
     </div>
   );
 }
-export default renderLandingPage;
+export default RenderLandingPage;
