@@ -15,7 +15,7 @@ import 'antd/dist/antd.less';
 
 import { NotFoundPage } from './components/pages/default-notfound';
 import { LoginPage } from './components/pages/default-login';
-import { landingPage } from './components/pages/default-landing';
+import { LandingPage } from './components/pages/default-landing';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
@@ -55,7 +55,7 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
-        <Route path="/landing" component={landingPage} />
+        <Route path="/landing" component={LandingPage} />
         {/* test route */}
 
         <Route path="/member-table" component={MemberTable} />
