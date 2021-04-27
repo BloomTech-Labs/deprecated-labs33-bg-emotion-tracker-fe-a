@@ -1,10 +1,10 @@
-# BGCA Experience Tracker - Front End Development
+# BGCA Experience Tracker - Front End Repository
 
 ### A Tracker aimed towards recording the emotional sentiment of members attending BGCA activities, this iteration allows for authentication on Oktas sign-in widget, navigation of a dashboard-type application, upload and parsing of .csv containing program information and member information accordingly, also the ability to generate and print .pdf version of member ID cards with corresponding QR code's on them.
 
  All features discussed :point_up: will be explained in further detail below
 
-#  List of Collaborators :robot:
+#  Collaborators :robot:
 
 - [Christopher Corvo](https://github.com/ChristopherCorvo)
 - [Oscar Figueroa](https://github.com/OscFig)
@@ -67,5 +67,4 @@ DB Schema explaining each table on back-end RDBMS
 Program Management Page.
 - [x] Visualization for display of all program's currently in system
 - [x] Ability to open extended modal window allowing for the upload of .csv containing program information
-- [x] Ability to individually add program by id
 - [x] TBD
