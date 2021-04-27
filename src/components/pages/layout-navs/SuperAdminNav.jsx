@@ -1,6 +1,7 @@
 import { Avatar, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
+import './SA.less';
 import { useOktaAuth } from '@okta/okta-react';
 import MemberTable from '../view-memberdash/MemberTable';
 import ProgramTable from '../view-programdash/ProgramTable';
@@ -23,8 +24,10 @@ const SuperAdminNav = props => {
   };
   return (
     <>
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout className="superadmin-layout" >
         <Sider
+          theme="light"
+          className="superadmin-sider"
           breakpoint="lg"
           width="250"
           collapsedWidth="0"
@@ -35,7 +38,7 @@ const SuperAdminNav = props => {
             console.log(collapsed, type);
           }}
         >
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
+          <Menu className="superadmin-menu" mode="inline" defaultSelectedKeys={['0']}>
             <Avatar
               size={120}
               gap="1"
