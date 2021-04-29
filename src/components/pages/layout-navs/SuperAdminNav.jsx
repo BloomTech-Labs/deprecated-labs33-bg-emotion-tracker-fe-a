@@ -26,7 +26,6 @@ const SuperAdminNav = props => {
     <>
       <Layout className="superadmin-layout" >
         <Sider
-          theme="light"
           className="superadmin-sider"
           breakpoint="lg"
           width="250"
@@ -40,6 +39,7 @@ const SuperAdminNav = props => {
         >
           <Menu className="superadmin-menu" mode="inline" defaultSelectedKeys={['0']}>
             <Avatar
+              className="logo"
               size={120}
               gap="1"
               style={{ margin: '16px 30px', width: '185px' }}
@@ -47,6 +47,7 @@ const SuperAdminNav = props => {
               shape="square"
             />
             <Menu.Item
+              className="menu-item"
               key="0"
               icon={<UserOutlined />}
               onClick={() => setContent('')}
@@ -54,6 +55,7 @@ const SuperAdminNav = props => {
               {role} Dashboard
             </Menu.Item>
             <Menu.Item
+              className="menu-item"
               key="1"
               icon={<BookOutlined />}
               onClick={() => setContent('programs')}
@@ -61,6 +63,7 @@ const SuperAdminNav = props => {
               Program Management
             </Menu.Item>
             <Menu.Item
+              className="menu-item"
               key="2"
               icon={<UserOutlined />}
               onClick={() => setContent('members')}

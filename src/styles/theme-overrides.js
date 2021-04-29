@@ -13,13 +13,13 @@ module.exports = {
   '@border-radius-base': '2px',
 
   /* Layout Defaults */
-
+  '@layout-header-background': '#F0F2F5',
 
   /* Typography */
   '@heading-color': '#004B87',
   '@link-color': '#0081C6',
   '@font-size-base': '14px',
-  '@text-color': '#333333',
+  '@text-color': '#0C5692',
   '@font-family':
   'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap',
   '@text-color-secondary': 'rgba(0, 0, 0, 0.45)',
