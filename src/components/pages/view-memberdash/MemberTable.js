@@ -1,12 +1,9 @@
-/* 
-This component will most likely replace the program dash. I was with christopher 
-*/
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Table, Tag, Space } from 'antd';
+import { Table } from 'antd';
 import axios from 'axios';
 
-// ---- merging render model with member table
+// ---- Imports for Ant Design Modal Component ------
 import { Modal, Button } from 'antd';
 import CsvImport from './new-modal-member/CsvImport';
 import ManualMemberIdForm from './new-modal-member/ManualMemberIdForm';
@@ -14,13 +11,13 @@ import QRCodeGenerator from './new-modal-member/QRCodeRender';
 
 import './new-modal-member/styles/renderModal.less';
 
-//------------
+//----------------------------------------------------
 
 const MemberTable = () => {
-  // ------- 4/21 modal state code ------------
   const [visible, setVisible] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
-  // ID QR gen
+
+  // -------- State for QR Generation ------
   const [newMemberId, setNewMemberId] = useState([]);
   const [toggle, setToggle] = useState(false);
 
@@ -44,12 +41,9 @@ const MemberTable = () => {
   };
 
   const handleCancel = () => {
-    console.log('Clicked cancel button');
     setVisible(false);
   };
   // --------- End of Modal Code ---------
-
-  // ------------------------
 
   const [members, setMembers] = useState([]);
 
@@ -59,7 +53,6 @@ const MemberTable = () => {
   const newData = [];
   const dataConverter = data => {
     for (let i = 0; i < data.length; i++) {
-      // append an object with a key value
       newData.push({ key: i, memberID: data[i].memberid });
     }
     setMembers(newData);
@@ -73,18 +66,14 @@ const MemberTable = () => {
         },
       })
       .then(res => {
-        console.log(res.data);
         dataConverter(res.data);
       })
       .catch(error => {
         console.log('THis is you error --->', error);
       });
   }, []);
-  // ------------------------
 
   const { Column } = Table;
-
-  console.log('members', members);
 
   return (
     <div>

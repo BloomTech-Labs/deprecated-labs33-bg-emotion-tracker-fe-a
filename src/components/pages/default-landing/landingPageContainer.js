@@ -1,7 +1,7 @@
 import React from 'react';
-import RenderLandingPage from './renderLandingPage';
+import RenderLandingPage from './RenderLandingPage';
 
-function landingPageContainer({ LoadingComponent }) {
+function LandingPageContainer({ LoadingComponent }) {
   return (
     <>
       <RenderLandingPage />
@@ -9,4 +9,4 @@ function landingPageContainer({ LoadingComponent }) {
   );
 }
 
-export default landingPageContainer;
+export default LandingPageContainer;

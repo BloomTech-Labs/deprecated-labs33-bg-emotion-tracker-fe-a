@@ -32,7 +32,6 @@ function CsvProgramImport(props) {
       )
       .then(res => {
         alert('Success! Programs added to the Database');
-        console.log(res);
       })
       .catch(err => {
         alert('An error occurred');
