@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { DashGrab } from '.';
+import { DashGrab } from './index';
 import { getUserData } from '../../../api';
 
 function DashGrabContainer({ LoadingComponent }) {

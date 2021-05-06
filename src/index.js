@@ -7,8 +7,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import { Provider } from 'react-redux';
-import { store } from '../src/state/index';
+
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
@@ -31,9 +30,7 @@ import MemberTable from './components/pages/view-memberdash/MemberTable';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <Provider store={store}>
         <App />
-      </Provider>
     </React.StrictMode>
   </Router>,
   document.getElementById('root')

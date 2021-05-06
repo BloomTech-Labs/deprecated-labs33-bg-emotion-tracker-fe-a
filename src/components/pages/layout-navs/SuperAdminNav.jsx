@@ -1,6 +1,7 @@
 import { Avatar, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import { UserOutlined, BookFilled, BookOutlined } from '@ant-design/icons';
+import './SA.less';
 import { useOktaAuth } from '@okta/okta-react';
 import MemberTable from '../view-memberdash/MemberTable';
 import ProgramTable from '../view-programdash/ProgramTable';
@@ -23,8 +24,9 @@ const SuperAdminNav = props => {
   };
   return (
     <>
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout className="superadmin-layout" >
         <Sider
+          className="superadmin-sider"
           breakpoint="lg"
           width="250"
           collapsedWidth="0"
@@ -35,8 +37,9 @@ const SuperAdminNav = props => {
             console.log(collapsed, type);
           }}
         >
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
+          <Menu className="superadmin-menu" mode="inline" defaultSelectedKeys={['0']}>
             <Avatar
+              className="logo"
               size={120}
               gap="1"
               style={{ margin: '16px 30px', width: '185px' }}
@@ -44,6 +47,7 @@ const SuperAdminNav = props => {
               shape="square"
             />
             <Menu.Item
+              className="menu-item"
               key="0"
               icon={<UserOutlined />}
               onClick={() => setContent('')}
@@ -51,6 +55,7 @@ const SuperAdminNav = props => {
               {role} Dashboard
             </Menu.Item>
             <Menu.Item
+              className="menu-item"
               key="1"
               icon={<BookOutlined />}
               onClick={() => setContent('programs')}
@@ -58,6 +63,7 @@ const SuperAdminNav = props => {
               Program Management
             </Menu.Item>
             <Menu.Item
+              className="menu-item"
               key="2"
               icon={<UserOutlined />}
               onClick={() => setContent('members')}
